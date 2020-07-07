@@ -21,13 +21,12 @@ def update(data):
     stdscr.border(0)
     stdscr.addstr(0, 0, f"{curses.LINES},{curses.COLS} Players: {len(data['snakes'])}")
     for i in data['apples']:
-        if 0 < i[1] < curses.LINES-1 and 0 < i[0] < curses.COLS-1:
-            print(i, curses.COLS, curses.LINES)
-            stdscr.addstr(i[1], i[0], "A")
+        if 1 < i[1]+1 < curses.LINES-1 and 1 < i[0]+1 < curses.COLS-1:
+            stdscr.addstr(i[1]+1, i[0]+1, "A")
     for snake in data['snakes']:
-        for i in snake:
-            if 0 < i[1] < curses.LINES-1 and 0 < i[0] < curses.COLS-1:
-                stdscr.addstr(i[1], i[0], "S")
+        for i in snake['snake']:
+            if 0 < i[1]+1 < curses.LINES-1 and 0 < i[0]+1 < curses.COLS-1:
+                stdscr.addstr(i[1]+1, i[0]+1, "S")
     stdscr.refresh()
 
 
